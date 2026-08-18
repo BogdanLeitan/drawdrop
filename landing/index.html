@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Drawdrop — hand-drawn whiteboard</title>
+    <meta
+      name="description"
+      content="Drawdrop is a local whiteboard built on Excalidraw. Cloud storage $3/month. Desktop app coming soon."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <input type="checkbox" id="theme" class="theme-switch" hidden />
+    <input type="checkbox" id="auth" class="auth-switch" hidden />
+
+    <div class="canvas">
+      <div class="intro">
+        <div class="sketch" aria-hidden="true">
+          <svg class="sketch-item sketch-box" viewBox="0 0 180 130" data-sketch="box">
+            <text class="sketch-text" x="58" y="74">box</text>
+          </svg>
+          <svg class="sketch-item sketch-circle" viewBox="0 0 120 120" data-sketch="circle"></svg>
+          <svg class="sketch-item sketch-diamond" viewBox="0 0 110 110" data-sketch="diamond"></svg>
+          <svg class="sketch-item sketch-arrow" viewBox="0 0 200 90" data-sketch="arrow"></svg>
+          <svg class="sketch-item sketch-note" viewBox="0 0 160 70">
+            <text class="sketch-text sketch-text-lg" x="8" y="46">idea →</text>
+          </svg>
+          <svg class="sketch-item sketch-line" viewBox="0 0 140 50" data-sketch="line"></svg>
+          <p class="sketch-label sketch-label-a">wireframe</p>
+          <p class="sketch-label sketch-label-b">note</p>
+        </div>
+
+        <header class="top">
+          <a class="brand" href="./index.html">
+            <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  stroke-width="2.15"
+                  d="M6.6 7.8c-.3-1.1.6-2 1.8-1.9l16.2-1c1.2-.1 2.2.9 2.1 2.1l-1.5 19.2c-.1 1.2-1.3 2.1-2.5 2L7.3 26.7c-1.2-.1-2-1.3-1.8-2.5L6.6 7.8Z"
+                />
+                <path stroke-width="1.55" d="M11 13.4c2.8-.7 5.8-.9 8.6-.3" />
+                <path stroke-width="1.55" d="M11.4 18.8c2.4-.5 5-.6 7.3.1" />
+              </g>
+              <path
+                fill="currentColor"
+                d="M27.4 10.6s-10.4 10.8-10.4 16.8c0 5.6 4.6 10 10.4 10s10.4-4.4 10.4-10c0-6-10.4-16.8-10.4-16.8Z"
+              />
+              <path
+                fill="none"
+                stroke="#fff"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                opacity="0.5"
+                d="M30.8 21.8c1.3 1.5 1.4 3.8.1 5.4"
+              />
+            </svg>
+            <span>Drawdrop</span>
+          </a>
+
+          <nav class="nav">
+            <a href="#plans">Pricing</a>
+            <a href="#desktop">Apps</a>
+            <a href="#thanks">Thanks</a>
+            <label class="theme-toggle" for="theme" title="Toggle theme">
+              <svg class="theme-moon-icon" viewBox="0 0 20 20" aria-hidden="true">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.25"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10 2.5h.328a6.25 6.25 0 0 0 6.6 10.372A7.5 7.5 0 1 1 10 2.493V2.5Z"
+                />
+              </svg>
+              <svg class="theme-sun-icon" viewBox="0 0 20 20" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                  <path d="M10 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM10 4.167V2.5M14.167 5.833l1.166-1.166M15.833 10H17.5M14.167 14.167l1.166 1.166M10 15.833V17.5M5.833 14.167l-1.166 1.166M5 10H3.333M5.833 5.833 4.667 4.667" />
+                </g>
+              </svg>
+            </label>
+            <a class="btn btn-ghost" href="../auth/signin.html">Log in</a>
+            <a class="btn btn-primary" href="../auth/signup.html">Sign up</a>
+          </nav>
+        </header>
+
+        <section class="hero">
+          <p class="eyebrow">whiteboard · cloud $3/month · desktop coming soon</p>
+          <h1>
+            Sketch ideas
+            <span>just like on paper.</span>
+          </h1>
+          <p class="lede">
+            Drawdrop is an infinite canvas for diagrams and quick thinking.
+            Pick a shape, drop it on the page, connect it with an arrow.
+            Built on Excalidraw — local-first, with optional cloud.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="http://localhost:3001">
+              Open the canvas
+            </a>
+            <a class="btn btn-ghost btn-lg" href="../auth/signin.html">Sign in</a>
+          </div>
+
+          <a class="scroll-hint" href="#plans">Pricing, desktop, and more</a>
+        </section>
+      </div>
+
+      <main>
+        <section class="plans" id="plans">
+          <div class="section-sketch" aria-hidden="true">
+            <svg class="sketch-item sketch-cloud" viewBox="0 0 160 100" data-sketch="cloud"></svg>
+            <svg class="sketch-item sketch-price" viewBox="0 0 90 60">
+              <text class="sketch-text sketch-text-lg" x="8" y="44">$3</text>
+            </svg>
+            <svg class="sketch-item sketch-check" viewBox="0 0 90 70" data-sketch="check"></svg>
+            <p class="sketch-label sketch-plans-free">free</p>
+            <p class="sketch-label sketch-plans-cloud">cloud</p>
+          </div>
+
+          <p class="section-kicker">pricing</p>
+          <h2 class="section-title">Simple. Pay only if you want cloud.</h2>
+          <p class="section-lede">
+            The canvas is free, local, in the browser. Cloud storage is optional
+            — $3 a month, so your drawings follow you to every device.
+          </p>
+
+          <div class="plan-grid">
+            <article class="island plan">
+              <p class="plan-name">Free</p>
+              <p class="plan-price">$0 <span>/month</span></p>
+              <ul>
+                <li>Infinite canvas in the browser</li>
+                <li>Local save</li>
+                <li>Export PNG, SVG, .excalidraw</li>
+                <li>No account required</li>
+              </ul>
+              <a class="btn btn-ghost" href="http://localhost:3001">Start free</a>
+            </article>
+
+            <article class="island plan plan-featured">
+              <p class="plan-badge">recommended</p>
+              <p class="plan-name">Cloud</p>
+              <p class="plan-price">$3 <span>/month</span></p>
+              <ul>
+                <li>Everything in Free</li>
+                <li>Cloud storage for scenes</li>
+                <li>Sync across devices</li>
+                <li>Automatic backup</li>
+              </ul>
+              <a class="btn btn-primary" href="../auth/signin.html">Sign in for cloud</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="desktop" id="desktop">
+          <div class="section-sketch" aria-hidden="true">
+            <svg class="sketch-item sketch-laptop" viewBox="0 0 170 110" data-sketch="laptop"></svg>
+            <svg class="sketch-item sketch-phone" viewBox="0 0 80 120" data-sketch="phone"></svg>
+            <svg class="sketch-item sketch-sync" viewBox="0 0 200 90" data-sketch="arrow"></svg>
+            <p class="sketch-label sketch-apps-sync">sync</p>
+            <p class="sketch-label sketch-apps-offline">offline</p>
+          </div>
+
+          <p class="section-kicker">apps</p>
+          <h2 class="section-title">Same canvas. On every device.</h2>
+          <p class="section-lede">
+            Drawdrop is coming to desktop and mobile — a native window on your
+            computer, a home-screen app on your phone, offline by default, with
+            the same files you already sketch in the browser. Optional cloud
+            stays $3/month if you want drawings on every device.
+          </p>
+
+          <div class="os-row">
+            <article class="island os-card">
+              <p class="plan-badge plan-badge-soon">coming soon</p>
+              <svg class="os-logo" viewBox="0 0 88 88" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M0 12.402l35.687-4.86.016 34.43-35.69.203zm35.67 33.529l.028 34.453L.028 75.48.026 45.7zm4.326-39.025L87.314 0v41.527l-47.318.376zm47.329 39.349l-.011 41.34-47.318-6.708-.066-34.739z"
+                />
+              </svg>
+              <h3>Windows</h3>
+              <p>Install it like any other app. Works offline. Coming soon for Windows 10 and 11.</p>
+            </article>
+            <article class="island os-card">
+              <p class="plan-badge plan-badge-soon">coming soon</p>
+              <svg class="os-logo os-logo-apple" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+                />
+              </svg>
+              <h3>macOS</h3>
+              <p>A dock icon, not a browser tab. Same editor on Apple silicon and Intel. Coming soon.</p>
+            </article>
+            <article class="island os-card">
+              <p class="plan-badge plan-badge-soon">coming soon</p>
+              <svg class="os-logo" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M17.6 9.48 19.44 6.3a.64.64 0 0 0-.26-.85.64.64 0 0 0-.83.22l-1.88 3.24a11.4 11.4 0 0 0-8.94 0L5.65 5.67a.64.64 0 0 0-.83-.22.64.64 0 0 0-.26.85l1.84 3.18C4.16 11.17 2.4 13.84 2.4 17h19.2c0-3.16-1.76-5.83-4-7.52ZM7 15.25A1.25 1.25 0 1 1 7 12.75a1.25 1.25 0 0 1 0 2.5Zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z"
+                />
+              </svg>
+              <h3>Android</h3>
+              <p>Sketch on a phone or tablet. Same files, same cloud. Coming soon on Google Play.</p>
+            </article>
+            <article class="island os-card">
+              <p class="plan-badge plan-badge-soon">coming soon</p>
+              <svg class="os-logo" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M16.5 1h-9A2.5 2.5 0 0 0 5 3.5v17A2.5 2.5 0 0 0 7.5 23h9a2.5 2.5 0 0 0 2.5-2.5v-17A2.5 2.5 0 0 0 16.5 1ZM12 21.15a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3Zm4.2-3.9H7.8V4.75h8.4V17.25Z"
+                />
+              </svg>
+              <h3>iOS</h3>
+              <p>A home-screen app for iPhone and iPad. Coming soon on the App Store.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="thanks" id="thanks">
+          <div class="thanks-hearts" aria-hidden="true">
+            <svg class="heart heart-a" viewBox="-6 -6 112 102" data-heart></svg>
+            <svg class="heart heart-b" viewBox="-6 -6 112 102" data-heart></svg>
+            <svg class="heart heart-c" viewBox="-6 -6 112 102" data-heart></svg>
+            <svg class="heart heart-d" viewBox="-6 -6 112 102" data-heart></svg>
+            <svg class="heart heart-e" viewBox="-6 -6 112 102" data-heart></svg>
+          </div>
+          <div class="thanks-card island">
+            <p class="thanks-kicker">with gratitude</p>
+            <h2>Thank you, Excalidraw.</h2>
+            <p>
+              Drawdrop exists because
+              <a href="https://github.com/excalidraw/excalidraw" rel="noopener noreferrer"
+                >Excalidraw</a
+              >
+              is open source. The editor, the hand-drawn look, the open format,
+              and the work of hundreds of contributors are theirs. We are
+              building on top of it, under the MIT license.
+            </p>
+            <p>
+              If you like what you see here, thank them first —
+              <a href="https://excalidraw.com" rel="noopener noreferrer">excalidraw.com</a>
+              and
+              <a href="https://github.com/excalidraw/excalidraw" rel="noopener noreferrer"
+                >github.com/excalidraw/excalidraw</a
+              >.
+            </p>
+            <blockquote>
+              “An open source virtual hand-drawn style whiteboard.”
+              <cite>— the Excalidraw team</cite>
+            </blockquote>
+          </div>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <div class="foot-inner">
+          <a class="brand foot-brand" href="./index.html">
+            <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  stroke-width="2.15"
+                  d="M6.6 7.8c-.3-1.1.6-2 1.8-1.9l16.2-1c1.2-.1 2.2.9 2.1 2.1l-1.5 19.2c-.1 1.2-1.3 2.1-2.5 2L7.3 26.7c-1.2-.1-2-1.3-1.8-2.5L6.6 7.8Z"
+                />
+                <path stroke-width="1.55" d="M11 13.4c2.8-.7 5.8-.9 8.6-.3" />
+                <path stroke-width="1.55" d="M11.4 18.8c2.4-.5 5-.6 7.3.1" />
+              </g>
+              <path
+                fill="currentColor"
+                d="M27.4 10.6s-10.4 10.8-10.4 16.8c0 5.6 4.6 10 10.4 10s10.4-4.4 10.4-10c0-6-10.4-16.8-10.4-16.8Z"
+              />
+              <path
+                fill="none"
+                stroke="#fff"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                opacity="0.5"
+                d="M30.8 21.8c1.3 1.5 1.4 3.8.1 5.4"
+              />
+            </svg>
+            <span>Drawdrop</span>
+          </a>
+
+          <nav class="foot-nav" aria-label="Footer">
+            <a href="#plans">Pricing</a>
+            <a href="#desktop">Apps</a>
+            <a href="#thanks">Thanks</a>
+            <a href="../dashboard/index.html">Dashboard</a>
+            <a href="http://localhost:3001">Canvas</a>
+            <a href="https://github.com/excalidraw/excalidraw" rel="noopener noreferrer">Excalidraw</a>
+          </nav>
+        </div>
+        <p class="foot-copy">
+          © 2026 Drawdrop · built on Excalidraw (MIT) · cloud storage $3/month
+        </p>
+      </footer>
+    </div>
+
+    <label class="auth-backdrop" for="auth" aria-hidden="true"></label>
+    <section class="auth-panel island" role="dialog" aria-labelledby="auth-title">
+      <label class="auth-close" for="auth" aria-label="Close">×</label>
+      <p class="section-kicker">account</p>
+      <h2 id="auth-title">Sign in</h2>
+      <p class="auth-lede">Log in to sync drawings to the cloud for $3/month.</p>
+      <form class="auth-form" action="#" method="post">
+        <label>
+          Email
+          <input type="email" name="email" placeholder="you@studio.com" required />
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" placeholder="••••••••" required />
+        </label>
+        <button class="btn btn-primary" type="submit">Log in</button>
+      </form>
+      <p class="auth-switch-text">
+        New here?
+        <button class="linkish" type="button">Create an account</button>
+      </p>
+    </section>
+
+    <script src="https://unpkg.com/roughjs@4.6.6/bundled/rough.js"></script>
+    <script>
+      (function () {
+        if (!window.rough) {
+          return;
+        }
+
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var hatch = "#a5d8ff";
+        var ink = {
+          roughness: 1.2,
+          stroke: "#1e1e1e",
+          strokeWidth: 1.5,
+          fillWeight: 0.75,
+          hachureGap: 6,
+          hachureAngle: -41,
+        };
+
+        function animateInk(root, delay, fillColor) {
+          if (reduce) {
+            return;
+          }
+          root.querySelectorAll("path").forEach(function (path) {
+            var stroke = (path.getAttribute("stroke") || "").toLowerCase();
+            if (fillColor && stroke === fillColor.toLowerCase()) {
+              path.style.opacity = "0";
+              path.style.animation =
+                "sketch-fill-in 0.5s ease " + (delay + 0.9) + "s forwards";
+              return;
+            }
+            try {
+              var len = path.getTotalLength();
+              path.style.strokeDasharray = String(len);
+              path.style.strokeDashoffset = String(len);
+              path.style.animation =
+                "sketch-draw 1.15s ease " + delay + "s forwards";
+            } catch (e) {}
+          });
+        }
+
+        function place(svg, node) {
+          svg.insertBefore(node, svg.firstChild);
+          return node;
+        }
+
+        var sketchers = {
+          box: function (rc) {
+            return rc.rectangle(16, 18, 148, 88, Object.assign({}, ink, {
+              seed: 3,
+              fill: hatch,
+              fillStyle: "hachure",
+            }));
+          },
+          circle: function (rc) {
+            return rc.ellipse(60, 60, 84, 80, Object.assign({}, ink, {
+              seed: 11,
+              stroke: "#1971c2",
+              fill: hatch,
+              fillStyle: "hachure",
+            }));
+          },
+          diamond: function (rc) {
+            return rc.polygon(
+              [
+                [55, 8],
+                [100, 54],
+                [52, 100],
+                [10, 56],
+              ],
+              Object.assign({}, ink, {
+                seed: 19,
+                fill: hatch,
+                fillStyle: "hachure",
+              })
+            );
+          },
+          cloud: function (rc) {
+            var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            group.appendChild(
+              rc.ellipse(82, 58, 118, 52, Object.assign({}, ink, {
+                seed: 61,
+                fill: hatch,
+                fillStyle: "hachure",
+              }))
+            );
+            group.appendChild(
+              rc.ellipse(50, 42, 54, 42, Object.assign({}, ink, {
+                seed: 67,
+                fill: hatch,
+                fillStyle: "hachure",
+              }))
+            );
+            group.appendChild(
+              rc.ellipse(112, 40, 58, 44, Object.assign({}, ink, {
+                seed: 71,
+                fill: hatch,
+                fillStyle: "hachure",
+                stroke: "#1971c2",
+              }))
+            );
+            return group;
+          },
+          check: function (rc) {
+            return rc.linearPath(
+              [
+                [12, 34],
+                [34, 56],
+                [78, 14],
+              ],
+              Object.assign({}, ink, { seed: 79, stroke: "#2f9e44", strokeWidth: 2.2 })
+            );
+          },
+          laptop: function (rc) {
+            var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            group.appendChild(
+              rc.rectangle(22, 10, 126, 72, Object.assign({}, ink, {
+                seed: 83,
+                fill: hatch,
+                fillStyle: "hachure",
+              }))
+            );
+            group.appendChild(
+              rc.rectangle(8, 84, 154, 14, Object.assign({}, ink, { seed: 89 }))
+            );
+            return group;
+          },
+          phone: function (rc) {
+            return rc.rectangle(18, 8, 46, 104, Object.assign({}, ink, {
+              seed: 97,
+              stroke: "#1971c2",
+              fill: hatch,
+              fillStyle: "hachure",
+            }));
+          },
+          arrow: function (rc) {
+            var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            group.appendChild(
+              rc.path("M8 62 C 48 10, 128 8, 174 48", Object.assign({}, ink, {
+                seed: 27,
+                stroke: "#1971c2",
+              }))
+            );
+            group.appendChild(
+              rc.linearPath(
+                [
+                  [152, 30],
+                  [178, 49],
+                  [148, 58],
+                ],
+                Object.assign({}, ink, { seed: 31, stroke: "#1971c2" })
+              )
+            );
+            return group;
+          },
+          line: function (rc) {
+            return rc.path("M6 28 C 38 8, 76 42, 132 18", Object.assign({}, ink, {
+              seed: 41,
+            }));
+          },
+        };
+
+        var delays = {
+          box: 0.1,
+          circle: 0.45,
+          diamond: 0.8,
+          arrow: 1.15,
+          line: 1.55,
+        };
+
+        document.querySelectorAll("[data-sketch]").forEach(function (svg) {
+          var kind = svg.getAttribute("data-sketch");
+          var draw = sketchers[kind];
+          if (!draw) {
+            return;
+          }
+          var node = place(svg, draw(rough.svg(svg)));
+          var inSection = svg.closest(".section-sketch");
+          var noFill = kind === "arrow" || kind === "line" || kind === "check";
+          if (!inSection) {
+            animateInk(node, delays[kind] || 0, noFill ? "" : hatch);
+          }
+        });
+
+        var heartPath =
+          "M50 82 C 18 58, 8 36, 20 22 C 28 12, 42 14, 50 32 C 58 14, 72 12, 80 22 C 92 36, 82 58, 50 82 Z";
+
+        document.querySelectorAll("[data-heart]").forEach(function (svg, i) {
+          svg.appendChild(
+            rough.svg(svg).path(heartPath, {
+              roughness: 1.15,
+              stroke: "#e03131",
+              strokeWidth: 1.5,
+              fill: "#ffc9c9",
+              fillStyle: "hachure",
+              fillWeight: 0.75,
+              hachureGap: 6,
+              hachureAngle: -41,
+              seed: 51 + i * 17,
+            })
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

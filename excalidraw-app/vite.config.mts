@@ -15,8 +15,22 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       port: Number(envVars.VITE_APP_PORT || 3000),
-      // open the browser
       open: true,
+      watch: {
+        // OneDrive touches files and would restart Vite in a loop
+        awaitWriteFinish: {
+          stabilityThreshold: 500,
+          pollInterval: 100,
+        },
+        ignored: [
+          "**/landing/**",
+          "**/auth/**",
+          "**/dashboard/**",
+          "**/.git/**",
+          "**/.env.development",
+          "**/.env.production",
+        ],
+      },
     },
     // We need to specify the envDir since now there are no
     //more located in parallel with the vite.config.ts file but in parent dir
@@ -146,7 +160,10 @@ export default defineConfig(({ mode }) => {
         eslint:
           envVars.VITE_APP_ENABLE_ESLINT === "false"
             ? undefined
-            : { lintCommand: 'eslint "./**/*.{js,ts,tsx}"' },
+            : {
+                lintCommand: 'eslint "./**/*.{js,ts,tsx}"',
+                dev: { logLevel: ["error"] },
+              },
         overlay: {
           initialIsOpen: envVars.VITE_APP_COLLAPSE_OVERLAY === "false",
           badgeStyle: "margin-bottom: 4rem; margin-left: 1rem",

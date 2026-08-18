@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Drawdrop — your boards</title>
+    <meta
+      name="description"
+      content="Open and organize your Drawdrop whiteboards."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <input type="checkbox" id="theme" class="theme-switch" hidden />
+    <input type="checkbox" id="account" hidden />
+    <input type="radio" name="view" id="view-all" checked hidden />
+    <input type="radio" name="view" id="view-recent" hidden />
+    <input type="radio" name="view" id="view-starred" hidden />
+    <input type="radio" name="view" id="view-library" hidden />
+    <input type="radio" name="view" id="view-trash" hidden />
+
+    <div class="shell">
+      <aside class="side island">
+        <a class="brand" href="../landing/index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                stroke-width="2.15"
+                d="M6.6 7.8c-.3-1.1.6-2 1.8-1.9l16.2-1c1.2-.1 2.2.9 2.1 2.1l-1.5 19.2c-.1 1.2-1.3 2.1-2.5 2L7.3 26.7c-1.2-.1-2-1.3-1.8-2.5L6.6 7.8Z"
+              />
+              <path stroke-width="1.55" d="M11 13.4c2.8-.7 5.8-.9 8.6-.3" />
+              <path stroke-width="1.55" d="M11.4 18.8c2.4-.5 5-.6 7.3.1" />
+            </g>
+            <path
+              fill="currentColor"
+              d="M27.4 10.6s-10.4 10.8-10.4 16.8c0 5.6 4.6 10 10.4 10s10.4-4.4 10.4-10c0-6-10.4-16.8-10.4-16.8Z"
+            />
+            <path
+              fill="none"
+              stroke="#fff"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              opacity="0.5"
+              d="M30.8 21.8c1.3 1.5 1.4 3.8.1 5.4"
+            />
+          </svg>
+          <span>Drawdrop</span>
+        </a>
+
+        <a class="btn btn-primary new-btn" href="http://localhost:3001">
+          + New board
+        </a>
+
+        <nav class="side-nav">
+          <p class="nav-label">Boards</p>
+          <label class="nav-item" for="view-all">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="7" height="7" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+              <rect x="13.5" y="3.5" width="7" height="7" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+              <rect x="3.5" y="13.5" width="7" height="7" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+              <rect x="13.5" y="13.5" width="7" height="7" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+            </svg>
+            All boards
+          </label>
+          <label class="nav-item" for="view-recent">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="1.7" />
+              <path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+            </svg>
+            Recent
+          </label>
+          <label class="nav-item" for="view-starred">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 3.8 14.4 9l5.6.8-4 3.9.9 5.6L12 16.6 7.1 19.3l.9-5.6-4-3.9L9.6 9 12 3.8Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Starred
+          </label>
+          <p class="nav-label">More</p>
+          <label class="nav-item" for="view-library">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M5 5.5h11.5A2.5 2.5 0 0 1 19 8v11.5H7.5A2.5 2.5 0 0 1 5 17V5.5Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+              />
+              <path d="M5 17a2.5 2.5 0 0 1 2.5-2.5H19" fill="none" stroke="currentColor" stroke-width="1.7" />
+            </svg>
+            Library
+          </label>
+          <label class="nav-item" for="view-trash">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M5 8h14M9.5 8V6.2A1.2 1.2 0 0 1 10.7 5h2.6a1.2 1.2 0 0 1 1.2 1.2V8M8 8l.7 11.2A1.3 1.3 0 0 0 10 20.5h4a1.3 1.3 0 0 0 1.3-1.3L16 8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+            Trash
+          </label>
+        </nav>
+
+        <div class="side-foot">
+          <label class="theme-toggle" for="theme" title="Toggle theme">
+            <svg class="theme-moon-icon" viewBox="0 0 20 20" aria-hidden="true">
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 2.5h.328a6.25 6.25 0 0 0 6.6 10.372A7.5 7.5 0 1 1 10 2.493V2.5Z"
+              />
+            </svg>
+            <svg class="theme-sun-icon" viewBox="0 0 20 20" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                <path d="M10 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM10 4.167V2.5M14.167 5.833l1.166-1.166M15.833 10H17.5M14.167 14.167l1.166 1.166M10 15.833V17.5M5.833 14.167l-1.166 1.166M5 10H3.333M5.833 5.833 4.667 4.667" />
+              </g>
+            </svg>
+            <span class="theme-label-dark">Dark mode</span>
+            <span class="theme-label-light">Light mode</span>
+          </label>
+
+          <label class="user" for="account">
+            <span class="avatar" aria-hidden="true">A</span>
+            <span class="user-copy">
+              <strong>Account</strong>
+              <small>Cloud · $3/month</small>
+            </span>
+          </label>
+          <div class="user-menu island">
+            <a href="../landing/index.html">Settings</a>
+            <a href="../landing/index.html#plans">Manage plan</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="dash-sketch" aria-hidden="true">
+          <svg class="sketch-item dash-box" viewBox="0 0 180 130" data-sketch="box">
+            <text class="sketch-text" x="52" y="74">board</text>
+          </svg>
+          <svg class="sketch-item dash-circle" viewBox="0 0 120 120" data-sketch="circle"></svg>
+          <svg class="sketch-item dash-arrow" viewBox="0 0 200 90" data-sketch="arrow"></svg>
+          <svg class="sketch-item dash-line" viewBox="0 0 140 50" data-sketch="line"></svg>
+          <p class="sketch-label dash-label-a">canvas</p>
+          <p class="sketch-label dash-label-b">sketch</p>
+        </div>
+
+        <header class="main-top">
+          <div class="main-title">
+            <p class="kicker">your workspace</p>
+            <h1>Your boards</h1>
+          </div>
+          <label class="search">
+            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.2" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <path d="M16 16.5 20 20.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            <input type="search" placeholder="Search boards" />
+          </label>
+        </header>
+
+        <section class="panel-empty library-empty island">
+          <p class="kicker">library</p>
+          <h2>No library items yet</h2>
+          <p>Saved shapes and templates for this account will live here.</p>
+        </section>
+
+        <section class="panel-empty trash-empty island">
+          <p class="kicker">trash</p>
+          <h2>Trash is empty</h2>
+          <p>Deleted boards from this account will show up here.</p>
+        </section>
+
+        <section class="board-grid" aria-label="Your whiteboards">
+          <a class="board board-new island" href="http://localhost:3001">
+            <span class="board-new-plus">+</span>
+            <span>New whiteboard</span>
+          </a>
+
+          <a class="board island" href="http://localhost:3001">
+            <div class="thumb thumb-empty">
+              <p>Untitled</p>
+            </div>
+            <div class="board-meta">
+              <h2>Untitled board</h2>
+              <p>Private · just created</p>
+            </div>
+          </a>
+        </section>
+      </main>
+    </div>
+    <script src="https://unpkg.com/roughjs@4.6.6/bundled/rough.js"></script>
+    <script>
+      (function () {
+        if (!window.rough) {
+          return;
+        }
+        var hatch = "#a5d8ff";
+        var ink = {
+          roughness: 1.2,
+          stroke: "#1e1e1e",
+          strokeWidth: 1.5,
+          fillWeight: 0.75,
+          hachureGap: 6,
+          hachureAngle: -41,
+        };
+        var sketchers = {
+          box: function (rc) {
+            return rc.rectangle(16, 18, 148, 88, Object.assign({}, ink, {
+              seed: 3,
+              fill: hatch,
+              fillStyle: "hachure",
+            }));
+          },
+          circle: function (rc) {
+            return rc.ellipse(60, 60, 84, 80, Object.assign({}, ink, {
+              seed: 11,
+              stroke: "#1971c2",
+              fill: hatch,
+              fillStyle: "hachure",
+            }));
+          },
+          arrow: function (rc) {
+            var group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            group.appendChild(
+              rc.path("M8 62 C 48 10, 128 8, 174 48", Object.assign({}, ink, {
+                seed: 27,
+                stroke: "#1971c2",
+              }))
+            );
+            group.appendChild(
+              rc.linearPath(
+                [
+                  [152, 30],
+                  [178, 49],
+                  [148, 58],
+                ],
+                Object.assign({}, ink, { seed: 31, stroke: "#1971c2" })
+              )
+            );
+            return group;
+          },
+          line: function (rc) {
+            return rc.path("M6 28 C 38 8, 76 42, 132 18", Object.assign({}, ink, {
+              seed: 41,
+            }));
+          },
+        };
+        document.querySelectorAll("[data-sketch]").forEach(function (svg) {
+          var kind = svg.getAttribute("data-sketch");
+          var draw = sketchers[kind];
+          if (!draw) {
+            return;
+          }
+          svg.insertBefore(draw(rough.svg(svg)), svg.firstChild);
+        });
+      })();
+    </script>
+  </body>
+</html>

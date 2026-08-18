@@ -1,0 +1,422 @@
+@font-face {
+  font-family: "Excalifont";
+  src: url("https://unpkg.com/@excalidraw/excalidraw@0.17.6/dist/excalidraw-assets/Virgil.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ui-font: Assistant, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial, sans-serif;
+  --draw-font: Excalifont, Virgil, "Segoe Print", "Comic Sans MS", cursive;
+  --color-primary: #228be6;
+  --color-primary-hover: #1c7ed6;
+  --color-brand-active: #1971c2;
+  --color-logo-text: #0b3d66;
+  --color-on-surface: #1b1b1f;
+  --color-gray-50: #999999;
+  --color-gray-60: #7a7a7a;
+  --color-gray-70: #5c5c5c;
+  --color-surface-high: #e7f5ff;
+  --color-surface-low: #e7eaf0;
+  --color-surface-primary-container: #d0ebff;
+  --island-bg: #ffffff;
+  --page-bg: #ffffff;
+  --link: #1c7ed6;
+  --shadow-island: 0px 0px 1px 0px rgba(0, 0, 0, 0.17),
+    0px 0px 3px 0px rgba(0, 0, 0, 0.08), 0px 7px 14px 0px rgba(0, 0, 0, 0.05);
+  --radius: 0.5rem;
+}
+
+.theme-switch:checked ~ .page {
+  --page-bg: #121212;
+  --island-bg: #1e1e1e;
+  --color-on-surface: #e3e3e8;
+  --color-logo-text: #d0ebff;
+  --color-surface-high: #1a2a3a;
+  --color-surface-low: #2c2c34;
+  --color-surface-primary-container: #16324a;
+  --link: #4dabf7;
+  --color-gray-50: #999999;
+  --color-gray-60: #b8b8b8;
+  --color-gray-70: #d6d6d6;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ui-font);
+  color: var(--color-on-surface);
+  background: var(--page-bg);
+}
+
+a {
+  color: var(--link);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--page-bg);
+  color: var(--color-on-surface);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-logo-text);
+  font-family: var(--draw-font);
+  font-size: 1.7rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 1.9rem;
+  height: 1.9rem;
+  color: var(--color-primary);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-surface-low);
+  background: var(--island-bg);
+  box-shadow: var(--shadow-island);
+  color: var(--color-on-surface);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--color-surface-high);
+}
+
+.theme-toggle svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.theme-sun-icon {
+  display: none;
+}
+
+.theme-switch:checked ~ .page .theme-moon-icon {
+  display: none;
+}
+
+.theme-switch:checked ~ .page .theme-sun-icon {
+  display: block;
+}
+
+.stage {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 2.5rem 1.5rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.sketch {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sketch-item {
+  position: absolute;
+}
+
+.sketch-text {
+  font-family: var(--draw-font);
+  font-size: 28px;
+  fill: var(--color-primary);
+  opacity: 0.72;
+}
+
+.sketch-text-lg {
+  font-size: 34px;
+}
+
+.sketch-label {
+  position: absolute;
+  margin: 0;
+  font-family: var(--draw-font);
+  color: var(--color-on-surface);
+  opacity: 0.3;
+}
+
+.sk-box {
+  width: 190px;
+  top: 14%;
+  left: 6%;
+  transform: rotate(-8deg);
+}
+
+.sk-circle {
+  width: 128px;
+  top: 16%;
+  right: 8%;
+  transform: rotate(9deg);
+}
+
+.sk-arrow {
+  width: 210px;
+  bottom: 16%;
+  left: 7%;
+  transform: rotate(-7deg);
+}
+
+.sk-lock {
+  width: 90px;
+  bottom: 18%;
+  right: 10%;
+  transform: rotate(8deg);
+}
+
+.sk-check {
+  width: 80px;
+  top: 38%;
+  left: 10%;
+  transform: rotate(-12deg);
+}
+
+.sk-line {
+  width: 150px;
+  top: 48%;
+  right: 6%;
+  transform: rotate(14deg);
+}
+
+.sk-hello {
+  top: 10%;
+  left: 22%;
+  font-size: 1.55rem;
+  transform: rotate(-7deg);
+}
+
+.sk-cloud {
+  bottom: 12%;
+  right: 22%;
+  font-size: 1.4rem;
+  transform: rotate(6deg);
+}
+
+.sk-join {
+  top: 12%;
+  right: 20%;
+  font-size: 1.5rem;
+  transform: rotate(8deg);
+}
+
+.sk-key {
+  bottom: 14%;
+  left: 20%;
+  font-size: 1.35rem;
+  transform: rotate(-5deg);
+}
+
+.island {
+  background: var(--island-bg);
+  box-shadow: var(--shadow-island);
+  border-radius: 0.75rem;
+}
+
+.auth-card {
+  width: min(26.5rem, 100%);
+  padding: 1.7rem 1.55rem 1.55rem;
+  position: relative;
+  z-index: 1;
+}
+
+.kicker {
+  margin: 0 0 0.35rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+}
+
+.auth-card h1 {
+  margin: 0 0 0.4rem;
+  font-family: var(--draw-font);
+  font-size: 2.05rem;
+  font-weight: 400;
+  color: var(--color-logo-text);
+}
+
+.lede {
+  margin: 0 0 1.25rem;
+  color: var(--color-gray-70);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  padding: 0.62rem 0.9rem;
+  font-family: var(--ui-font);
+  font-weight: 600;
+  font-size: 0.92rem;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn-google {
+  width: 100%;
+  gap: 0.65rem;
+  background: var(--island-bg);
+  color: var(--color-on-surface);
+  border-color: var(--color-surface-low);
+  box-shadow: var(--shadow-island);
+}
+
+.btn-google:hover {
+  background: var(--color-surface-high);
+}
+
+.btn-google svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.or {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.05rem 0;
+  color: var(--color-gray-50);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+.or::before,
+.or::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-surface-low);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.auth-form input {
+  font: inherit;
+  font-weight: 400;
+  padding: 0.62rem 0.7rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-surface-low);
+  background: var(--page-bg);
+  color: var(--color-on-surface);
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-surface-primary-container);
+}
+
+.auth-form .btn {
+  margin-top: 0.15rem;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-row a {
+  font-size: 0.82rem;
+}
+
+.switch-text {
+  margin: 1.05rem 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-gray-60);
+}
+
+.note {
+  margin: 0.9rem 0 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-gray-50);
+}
+
+@media (max-width: 860px) {
+  .sketch {
+    display: none;
+  }
+}
