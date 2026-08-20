@@ -8,31 +8,34 @@ const LogoIcon = () => (
     className="ExcalidrawLogo-icon"
     aria-hidden="true"
   >
-    <g
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <g transform="rotate(-6 20 20)">
+      <g
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="1.15"
+        strokeLinejoin="round"
+      >
+        <path opacity="0.4" d="M15.4 6.1 32.8 7.8 24.5 16.4 7 13.5Z" />
+        <path opacity="0.76" d="M24.5 16.4 32.8 7.8 34.4 25.6 25.8 33.8Z" />
+        <path d="M7 13.5 24.5 16.4 25.8 33.8 8.2 30.6Z" />
+      </g>
       <path
-        strokeWidth="2.15"
-        d="M6.6 7.8c-.3-1.1.6-2 1.8-1.9l16.2-1c1.2-.1 2.2.9 2.1 2.1l-1.5 19.2c-.1 1.2-1.3 2.1-2.5 2L7.3 26.7c-1.2-.1-2-1.3-1.8-2.5L6.6 7.8Z"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        opacity="0.4"
+        d="M24.5 16.4 7 13.5M24.5 16.4 25.8 33.8"
       />
-      <path strokeWidth="1.55" d="M11 13.4c2.8-.7 5.8-.9 8.6-.3" />
-      <path strokeWidth="1.55" d="M11.4 18.8c2.4-.5 5-.6 7.3.1" />
+      <path
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M13.5 19.8v8.1m0-8.1c4.55-.2 7.25 1.5 7.25 4.05s-2.65 4.25-7.25 4.05"
+      />
     </g>
-    <path
-      fill="currentColor"
-      d="M27.4 10.6s-10.4 10.8-10.4 16.8c0 5.6 4.6 10 10.4 10s10.4-4.4 10.4-10c0-6-10.4-16.8-10.4-16.8Z"
-    />
-    <path
-      fill="none"
-      stroke="#fff"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      opacity="0.5"
-      d="M30.8 21.8c1.3 1.5 1.4 3.8.1 5.4"
-    />
   </svg>
 );
 
