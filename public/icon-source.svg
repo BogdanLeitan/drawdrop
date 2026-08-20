@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="5.5 4.5 30 31" fill="none">
-  <g transform="rotate(-6 20 20)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+  <rect width="1024" height="1024" rx="224" ry="224" fill="#ffffff" />
+  <g transform="translate(512 512) scale(32) translate(-20 -20) rotate(-6 20 20)">
     <g fill="#228be6" stroke="#228be6" stroke-width="1.15" stroke-linejoin="round">
       <path opacity="0.4" d="M15.4 6.1 32.8 7.8 24.5 16.4 7 13.5Z" />
       <path opacity="0.76" d="M24.5 16.4 32.8 7.8 34.4 25.6 25.8 33.8Z" />
@@ -16,7 +17,7 @@
     <path
       fill="none"
       stroke="#fff"
-      stroke-width="2.25"
+      stroke-width="2.35"
       stroke-linecap="round"
       stroke-linejoin="round"
       d="M13.5 19.8v8.1m0-8.1c4.55-.2 7.25 1.5 7.25 4.05s-2.65 4.25-7.25 4.05"
